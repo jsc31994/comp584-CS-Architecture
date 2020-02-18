@@ -1,0 +1,11 @@
+fieldset {
+   width: 150px;
+}
+
+legend {
+   color: red;
+}
+
+body {
+   font-family: "Arial", cursive, sans-serif;
+}
