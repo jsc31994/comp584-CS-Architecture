@@ -6,7 +6,7 @@
       <link rel="stylesheet" type="text/css" href="index.css" />
    </head>
    <body>
-      <form method="POST" id="my-form">
+      <form method="post" id="my-form" action="">
          <fieldset>
             <legend>Add an Employee</legend>
             <label for="first-name">First Name</label><br />
@@ -28,6 +28,7 @@
                <option value="IT">IT</option>
                <option value="Software">Software Developer</option>
                <option value="Data Science">Data Scientist</option>
+               <option value="CLASSIFIED">CLASSIFIED</option>
             </select>
             <br /><br />
             <input
@@ -38,6 +39,7 @@
          </fieldset>
       </form>
       <p id="js-output"></p>
+      <p id="navigator"></p>
       <script src="index.js"></script>
    </body>
 </html>
