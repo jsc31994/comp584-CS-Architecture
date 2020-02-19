@@ -27,10 +27,27 @@ function createEmp() {
    var d = new Date();
    var num = employeeID;
    var dep = document.getElementById("dept");
+   var counter = 0;
 
-   if (fname.value === "" || lname.value === "") {
+   for (i = 0; i < employees.length; i++) {
+      var obj2 = JSON.parse(JSON.stringify(employees[i]));
+      if (
+         fname.value === obj2.firstName &&
+         lname.value === obj2.lastName &&
+         dep.value === obj2.department
+      ) {
+         output.innerHTML = "<p>User already exists.</p>";
+         console.log("got here");
+      } else {
+         counter++;
+      }
+   }
+   if (
+      (fname.value === "" || lname.value === "") &&
+      counter === employees.length
+   ) {
       output.innerHTML = "<p>Please fill in the form.</p>";
-   } else {
+   } else if (counter === employees.length) {
       var newEmp = Employee(fname, lname, d, num, dep);
 
       var obj = {
@@ -59,5 +76,7 @@ function createEmp() {
          employees.length +
          "</p>";
    }
+   console.log("Counter -> " + counter);
+   console.log("Employees array -> " + employees.length);
 }
 var myForm = document.getElementById("my-form");
