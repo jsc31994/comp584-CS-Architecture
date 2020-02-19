@@ -28,22 +28,36 @@ function createEmp() {
    var num = employeeID;
    var dep = document.getElementById("dept");
 
-   var newEmp = Employee(fname, lname, d, num, dep);
+   if (fname.value === "" || lname.value === "") {
+      output.innerHTML = "<p>Please fill in the form.</p>";
+   } else {
+      var newEmp = Employee(fname, lname, d, num, dep);
 
-   employees.push(newEmp);
-   console.log(JSON.stringify(employees));
+      var obj = {
+         firstName: fname.value,
+         lastName: lname.value,
+         hireDate: d,
+         employeeId: num,
+         department: dep.value
+      };
 
-   output.innerHTML =
-      "<p>Name: " +
-      lname.value +
-      ", " +
-      fname.value +
-      "<br>Department: " +
-      dep.value +
-      "<br>Employee ID: " +
-      num +
-      "<br>Hire Date: " +
-      d +
-      "</p>";
+      employees.push(obj);
+      console.log(JSON.stringify(employees));
+
+      output.innerHTML =
+         "<p>Name: " +
+         obj.lastName +
+         ", " +
+         obj.firstName +
+         "<br>Department: " +
+         obj.department +
+         "<br>Employee ID: " +
+         obj.employeeId +
+         "<br>Hire Date: " +
+         obj.hireDate +
+         "<br>Total Employees: " +
+         employees.length +
+         "</p>";
+   }
 }
 var myForm = document.getElementById("my-form");
