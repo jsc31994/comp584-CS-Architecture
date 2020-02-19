@@ -6,21 +6,28 @@
       <link rel="stylesheet" type="text/css" href="index.css" />
    </head>
    <body>
-      <form method="POST">
+      <form method="POST" id="my-form">
          <fieldset>
             <legend>Add an Employee</legend>
-            <label>First Name</label><br />
-            <input type="text" placeholder="First Name" /><br />
-            <label>Last Name</label><br />
-            <input type="text" placeholder="First Name" /><br />
-            <label>Department</label><br />
+            <label for="first-name">First Name</label><br />
+            <input type="text" placeholder="First Name" id="first-name" /><br />
+            <label for="last-name">Last Name</label><br />
+            <input type="text" placeholder="First Name" id="last-name" /><br />
+            <label for="dept">Department</label><br />
             <select id="dept">
-               <option value="it">IT</option>
-               <option value="sdev">Software Developer</option>
-               <option value="datascience">Data Scientist</option> </select
-            ><br /><br />
-            <input type="submit" value="Submit &rarr;" /><br />
+               <option value="IT">IT</option>
+               <option value="Software">Software Developer</option>
+               <option value="Data Science">Data Scientist</option>
+            </select>
+            <br /><br />
+            <input
+               type="button"
+               value="Submit &rarr;"
+               onclick="createEmp()"
+            /><br />
          </fieldset>
       </form>
+      <p id="js-output"></p>
+      <script src="index.js"></script>
    </body>
 </html>
