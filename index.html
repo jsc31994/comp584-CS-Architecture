@@ -6,7 +6,7 @@
       <link rel="stylesheet" type="text/css" href="index.css" />
    </head>
    <body>
-      <form method="post" id="my-form" action="">
+      <form method="POST" id="my-form" action="">
          <fieldset>
             <legend>Add an Employee</legend>
             <label for="first-name">First Name</label><br />
@@ -31,11 +31,7 @@
                <option value="CLASSIFIED">CLASSIFIED</option>
             </select>
             <br /><br />
-            <input
-               type="button"
-               value="Submit &rarr;"
-               onclick="createEmp()"
-            /><br />
+            <input type="submit" value="Submit &rarr;" /><br />
          </fieldset>
       </form>
       <p id="js-output"></p>

@@ -48,8 +48,9 @@ function createEmp() {
          lname.value === obj2.lastName &&
          dep.value === obj2.department
       ) {
+         alert("FAILURE: User already exists.");
          output.innerHTML = "<p>User already exists.</p>";
-         console.log("got here");
+         return false;
       } else {
          counter++;
       }
@@ -60,12 +61,14 @@ function createEmp() {
       counter === employees.length
    ) {
       output.innerHTML = "<p>Please fill in the form completely. </p>";
+      return false;
    }
    //creates the employee json object and sends it to our page
    else if (counter === employees.length) {
       var newEmp = Employee(fname, lname, d, num, dep);
 
       var obj = {
+         //this is the json object i made the "firstName" attribute== to the input
          firstName: fname.value,
          lastName: lname.value,
          hireDate: d,
@@ -94,6 +97,26 @@ function createEmp() {
          "</p>";
 
       showBrowser();
+
+      //sending the data into the server
+      //code would cause error
+
+      // $.ajax({
+      //    type: "POST",
+      //    dataType: "json",
+      //    url: "employees.php",
+      //    data: { myData: obj },
+      //    contentType: "application/json; charset=utf-8",
+      //    success: function(data) {
+      //       alert("Items added");
+      //    },
+      //    error: function(e) {
+      //       console.log(e.message);
+      //       alert("FAILURE");
+      //    }
+      // });
+
+      return false;
    }
    //    console.log("Counter -> " + counter);
    //    console.log("Employees array -> " + employees.length);
@@ -131,3 +154,10 @@ function showBrowser() {
 
    out2.innerHTML = "<p>Using: " + sBrowser + "</p>";
 }
+
+function init() {
+   "use strict";
+   document.getElementById("my-form").onsubmit = createEmp;
+}
+
+window.onload = init;

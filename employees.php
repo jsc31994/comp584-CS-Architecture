@@ -1,3 +1,4 @@
 <?php
-echo "<h1>Test</h1>";
+echo "<h1>Employee List</h1>";
+print_r($_POST);
 ?>
